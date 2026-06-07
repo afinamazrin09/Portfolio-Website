@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio — Afina Mazrin | UTP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a3a6b; --navy2:#14305a; --navy3:#0e2448;
+  --navy-light:#e8eef7; --navy-soft:rgba(26,58,107,0.08); --navy-mid:rgba(26,58,107,0.15);
+  --gold:#b8952a; --gold2:#d4aa35; --gold3:#e8c45a;
+  --gold-soft:rgba(184,149,42,0.12); --gold-mid:rgba(184,149,42,0.25);
+  --white:#ffffff; --off-white:#f8f7f4; --surface:#ffffff; --surface2:#f4f2ee;
+  --border:rgba(26,58,107,0.1); --border2:rgba(26,58,107,0.18);
+  --text:#0e1f3d; --text2:#4a5c7a; --text3:#8a9ab8;
+  --green:#1a9e65; --green-soft:rgba(26,158,101,0.1);
+  --radius:12px; --radius-lg:18px; --radius-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:64px;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);box-shadow:0 1px 20px rgba(26,58,107,0.08);}
+.nav-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);text-decoration:none;}
+.nav-links{display:flex;gap:0.2rem;}
+.nav-links a{font-size:0.85rem;font-weight:400;color:var(--text2);text-decoration:none;padding:0.4rem 0.9rem;border-radius:8px;transition:color 0.2s,background 0.2s;}
+.nav-links a:hover{color:var(--navy);background:var(--navy-soft);}
+.nav-links a.active{color:var(--navy);font-weight:500;background:var(--navy-soft);}
+.nav-status{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:var(--green);background:var(--green-soft);border:0.5px solid rgba(26,158,101,0.25);border-radius:20px;padding:0.3rem 0.85rem;font-weight:500;}
+.nav-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:0.3s;}
+
+/* SECTIONS */
+.page-section{min-height:100vh;padding-top:64px;position:relative;}
+
+/* HERO */
+#hero{display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--navy3);position:relative;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(184,149,42,0.2) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 80% 80%,rgba(26,58,107,0.4) 0%,transparent 60%);}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(184,149,42,0.15) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);}
+.hero-content{position:relative;z-index:1;max-width:800px;padding:2rem;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:var(--gold3);background:rgba(184,149,42,0.15);border:0.5px solid rgba(184,149,42,0.4);border-radius:20px;padding:0.35rem 1rem;margin-bottom:2rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;animation:fadeUp 0.6s ease both;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold3);border-radius:50%;animation:pulse 2s infinite;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;line-height:1.06;letter-spacing:-0.03em;margin-bottom:1.25rem;color:#fff;animation:fadeUp 0.6s 0.1s ease both;}
+.hero-title .line2{color:var(--gold2);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:500px;margin:0 auto 2.5rem;font-weight:300;animation:fadeUp 0.6s 0.2s ease both;}
+.hero-utp{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.45rem 0.85rem;margin-bottom:2.5rem;animation:fadeUp 0.6s 0.25s ease both;}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.6s 0.3s ease both;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;padding:0.75rem 1.75rem;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s,transform 0.15s;}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:400;padding:0.75rem 1.75rem;border-radius:10px;text-decoration:none;cursor:pointer;border:0.5px solid rgba(255,255,255,0.25);transition:border-color 0.2s,background 0.2s,transform 0.15s;}
+.btn-secondary:hover{border-color:var(--gold);background:rgba(184,149,42,0.12);transform:translateY(-1px);}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase;animation:fadeUp 0.6s 0.5s ease both;cursor:pointer;text-decoration:none;}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* PAGE WRAP */
+.page-wrap{max-width:1100px;margin:0 auto;padding:5rem 2rem 4rem;}
+.page-header{margin-bottom:3rem;}
+.page-label{font-size:0.73rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);font-weight:600;margin-bottom:0.75rem;}
+.page-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-0.02em;line-height:1.15;color:var(--navy);}
+.page-desc{color:var(--text2);font-size:0.95rem;margin-top:0.75rem;font-weight:300;line-height:1.7;max-width:600px;}
+
+#about{background:var(--white);}
+#portfolio{background:var(--off-white);}
+#contact{background:var(--navy3);}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start;}
+.about-card{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-xl);padding:2rem;text-align:center;position:sticky;top:80px;box-shadow:0 4px 24px rgba(26,58,107,0.08);}
+.avatar{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy2));border:3px solid var(--gold);margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--gold2);}
+.about-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.25rem;color:var(--navy);}
+.about-role{font-size:0.83rem;color:var(--text2);margin-bottom:1.25rem;font-weight:300;}
+.about-univ{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.78rem;color:var(--navy2);background:var(--navy-soft);border:0.5px solid var(--border2);border-radius:8px;padding:0.5rem 0.75rem;}
+.about-status{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.77rem;color:var(--green);background:var(--green-soft);border:0.5px solid rgba(26,158,101,0.2);border-radius:20px;padding:0.3rem 0.85rem;margin-bottom:1.5rem;font-weight:500;}
+.about-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+.about-links{display:flex;flex-direction:column;gap:0.55rem;}
+.about-link{display:flex;align-items:center;gap:0.6rem;font-size:0.83rem;color:var(--text2);background:var(--off-white);border:0.5px solid var(--border);border-radius:8px;padding:0.55rem 0.85rem;text-decoration:none;transition:color 0.2s,border-color 0.2s,background 0.2s;}
+.about-link:hover{color:var(--navy);border-color:var(--navy);background:var(--navy-soft);}
+.about-link svg{width:14px;height:14px;flex-shrink:0;}
+.about-content{display:flex;flex-direction:column;gap:1.75rem;}
+.section-block{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:0 2px 12px rgba(26,58,107,0.05);}
+.block-title{font-family:'Syne',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);margin-bottom:1.25rem;font-weight:700;}
+.about-summary{font-size:0.93rem;color:var(--text2);line-height:1.85;font-weight:300;}
+.skills-grid{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.skill-tag{font-size:0.79rem;padding:0.32rem 0.8rem;border-radius:20px;background:var(--off-white);border:0.5px solid var(--border2);color:var(--text2);font-weight:400;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.skill-tag:hover,.skill-tag.accent{background:var(--navy-soft);border-color:rgba(26,58,107,0.3);color:var(--navy);}
+.exp-list{display:flex;flex-direction:column;gap:1.25rem;}
+.exp-item{display:flex;gap:1rem;align-items:flex-start;}
+.exp-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px;}
+.exp-title{font-size:0.93rem;font-weight:500;color:var(--text);}
+.exp-org{font-size:0.83rem;color:var(--text2);margin:0.15rem 0;font-weight:300;}
+.exp-date{font-size:0.73rem;color:var(--text3);}
+
+/* PORT TABS */
+.port-tabs{display:flex;gap:0.2rem;margin-bottom:2.5rem;background:var(--white);border-radius:12px;padding:4px;width:fit-content;border:1px solid var(--border2);box-shadow:0 2px 8px rgba(26,58,107,0.06);flex-wrap:wrap;}
+.port-tab{font-size:0.84rem;padding:0.5rem 1.1rem;border-radius:9px;border:none;cursor:pointer;background:transparent;color:var(--text2);font-family:'DM Sans',sans-serif;font-weight:400;transition:all 0.2s;display:flex;align-items:center;gap:0.45rem;}
+.port-tab.active{background:var(--navy);color:#fff;}
+.port-tab-count{font-size:0.68rem;background:rgba(255,255,255,0.2);color:inherit;border-radius:4px;padding:1px 5px;}
+.port-tab:not(.active) .port-tab-count{background:var(--navy-soft);color:var(--navy);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* PROJECT CARDS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
+.project-card{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 12px rgba(26,58,107,0.06);}
+.project-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 8px 30px rgba(26,58,107,0.13);}
+.project-img{width:100%;height:170px;background:var(--navy);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.project-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.project-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,149,42,0.15),rgba(26,58,107,0.55));pointer-events:none;}
+.project-img-num{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:rgba(255,255,255,0.18);position:relative;z-index:1;pointer-events:none;}
+.project-body{padding:1.25rem;}
+.project-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.45rem;color:var(--navy);}
+.project-desc{font-size:0.84rem;color:var(--text2);line-height:1.6;font-weight:300;margin-bottom:1rem;}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.project-tag{font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:4px;background:var(--navy-soft);color:var(--navy);border:0.5px solid rgba(26,58,107,0.15);}
+.project-footer{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 1.25rem;border-top:1px solid var(--border);font-size:0.79rem;color:var(--text3);}
+.project-link{display:flex;align-items:center;gap:0.3rem;color:var(--gold);text-decoration:none;font-size:0.79rem;font-weight:500;transition:gap 0.2s;}
+.project-link:hover{gap:0.5rem;}
+
+/* PROJECT DETAIL OVERLAY */
+#project-detail-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(14,31,61,0.75);backdrop-filter:blur(6px);overflow-y:auto;padding:74px 1rem 2rem;}
+#project-detail-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+.detail-modal{background:var(--white);border-radius:var(--radius-xl);max-width:960px;width:100%;box-shadow:0 20px 60px rgba(14,31,61,0.25);overflow:hidden;animation:slideUp 0.3s ease;}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.detail-header{background:var(--navy);padding:2rem 2rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.detail-header-left{flex:1;}
+.detail-type{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold2);margin-bottom:0.5rem;font-weight:600;}
+.detail-title-text{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:-0.02em;}
+.detail-close{background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.2);color:#fff;border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0;}
+.detail-close:hover{background:rgba(255,255,255,0.2);}
+
+/* Project image gallery */
+.detail-gallery{display:flex;gap:0.6rem;overflow-x:auto;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+.detail-gallery:empty{display:none;}
+.detail-gallery-img{flex-shrink:0;height:180px;border-radius:10px;overflow:hidden;cursor:pointer;border:1.5px solid var(--border2);transition:border-color 0.2s,transform 0.2s;}
+.detail-gallery-img:hover{border-color:var(--gold);transform:scale(1.02);}
+.detail-gallery-img img{height:100%;width:auto;display:block;}
+
+.detail-body{padding:1.75rem 1.5rem;display:grid;grid-template-columns:1fr 270px;gap:2rem;}
+.detail-desc-text{font-size:0.92rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
+.block-title-sm{font-family:'Syne',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);margin-bottom:0.85rem;font-weight:700;}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.feature-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.88rem;color:var(--text2);line-height:1.5;}
+.feature-list li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:5px;}
+.detail-sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;}
+.tech-list{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.detail-actions{display:flex;flex-direction:column;gap:0.55rem;}
+.action-btn{display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.7rem;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:500;cursor:pointer;text-decoration:none;border:none;transition:transform 0.15s,background 0.2s;}
+.action-btn:hover{transform:translateY(-1px);}
+.action-btn.primary{background:var(--navy);color:#fff;}
+.action-btn.primary:hover{background:var(--navy2);}
+.action-btn.gold{background:var(--gold);color:#fff;}
+.action-btn.gold:hover{background:var(--gold2);}
+.action-btn.outline{background:transparent;color:var(--text);border:1px solid var(--border2);}
+.action-btn.outline:hover{border-color:var(--navy);background:var(--navy-soft);}
+
+/* CERT CARDS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.25rem;}
+.cert-card{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 12px rgba(26,58,107,0.05);}
+.cert-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 30px rgba(26,58,107,0.1);}
+.cert-preview{width:100%;height:150px;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.cert-preview img{width:100%;height:100%;object-fit:cover;}
+.cert-preview-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:rgba(255,255,255,0.3);font-size:0.78rem;text-align:center;padding:1rem;}
+.cert-preview-placeholder svg{width:28px;height:28px;opacity:0.4;}
+.cert-body{padding:1rem 1.1rem;}
+.cert-icon-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;}
+.cert-emoji{font-size:1.3rem;}
+.cert-badge{font-size:0.7rem;padding:0.18rem 0.55rem;border-radius:4px;background:var(--green-soft);color:var(--green);border:0.5px solid rgba(26,158,101,0.2);font-weight:500;}
+.cert-name{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:600;line-height:1.3;margin-bottom:0.25rem;color:var(--navy);}
+.cert-issuer{font-size:0.8rem;color:var(--text2);font-weight:300;margin-bottom:0.2rem;}
+.cert-date{font-size:0.72rem;color:var(--text3);}
+
+/* CERT LIGHTBOX */
+#cert-lightbox{display:none;position:fixed;inset:0;z-index:300;background:rgba(14,31,61,0.9);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1rem;}
+#cert-lightbox.open{display:flex;}
+.lightbox-inner{position:relative;max-width:820px;width:100%;text-align:center;}
+#cert-lightbox img{max-width:100%;max-height:82vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.lightbox-close{position:absolute;top:-14px;right:-14px;background:var(--gold);color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
+.lightbox-name{color:#fff;font-size:0.9rem;margin-top:1rem;opacity:0.75;}
+
+/* AWARDS */
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.25rem;}
+.award-card{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 12px rgba(26,58,107,0.05);}
+.award-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 30px rgba(26,58,107,0.1);}
+.award-card-img{width:100%;height:140px;background:var(--navy);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.award-card-img img{width:100%;height:100%;object-fit:cover;}
+.award-card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,var(--navy),var(--navy2));}
+.award-card-body{padding:1.25rem;position:relative;}
+.award-cat{display:inline-block;font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:4px;font-weight:700;letter-spacing:0.06em;margin-bottom:0.6rem;}
+.award-cat.a{background:rgba(212,170,53,0.12);color:#9a7a10;border:0.5px solid rgba(184,149,42,0.3);}
+.award-cat.b{background:rgba(140,140,140,0.1);color:#666;border:0.5px solid rgba(140,140,140,0.25);}
+.award-cat.c{background:rgba(160,100,50,0.1);color:#9a5e2e;border:0.5px solid rgba(160,100,50,0.25);}
+.award-cat.d{background:var(--navy-soft);color:var(--navy);border:0.5px solid rgba(26,58,107,0.2);}
+.award-title-text{font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:600;margin-bottom:0.3rem;color:var(--navy);}
+.award-event-text{font-size:0.82rem;color:var(--text2);font-weight:300;margin-bottom:0.2rem;}
+.award-year-text{font-size:0.72rem;color:var(--text3);}
+.award-see-more{font-size:0.78rem;color:var(--gold);font-weight:500;margin-top:0.6rem;display:flex;align-items:center;gap:0.3rem;}
+
+/* AWARD DETAIL MODAL */
+#award-detail-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(14,31,61,0.75);backdrop-filter:blur(6px);overflow-y:auto;padding:74px 1rem 2rem;}
+#award-detail-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+.award-modal{background:var(--white);border-radius:var(--radius-xl);max-width:860px;width:100%;box-shadow:0 20px 60px rgba(14,31,61,0.25);overflow:hidden;animation:slideUp 0.3s ease;}
+.award-modal-header{background:var(--navy);padding:1.75rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.award-modal-cat-wrap{margin-bottom:0.5rem;}
+.award-modal-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:-0.02em;}
+.award-modal-body{padding:1.75rem 2rem;}
+.award-modal-meta{display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);}
+.award-meta-item{display:flex;flex-direction:column;gap:0.2rem;}
+.award-meta-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);font-weight:600;}
+.award-meta-value{font-size:0.88rem;color:var(--text);font-weight:400;}
+.award-modal-summary{font-size:0.93rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
+.award-modal-gallery{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.award-modal-gallery img{height:170px;width:auto;border-radius:10px;cursor:pointer;border:1.5px solid var(--border2);transition:border-color 0.2s,transform 0.2s;object-fit:cover;}
+.award-modal-gallery img:hover{border-color:var(--gold);transform:scale(1.02);}
+
+/* EXPERIENCE CARDS */
+.exp-subtabs{display:flex;gap:1rem;margin-bottom:2rem;border-bottom:1px solid var(--border2);padding-bottom:0;}
+.exp-subtab{font-size:0.87rem;padding:0.55rem 0.25rem;background:none;border:none;cursor:pointer;color:var(--text2);font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color 0.2s,border-color 0.2s;}
+.exp-subtab.active{color:var(--navy);border-bottom-color:var(--gold);}
+.exp-subtab-panel{display:none;}
+.exp-subtab-panel.active{display:block;}
+.exp-cards{display:flex;flex-direction:column;gap:1.1rem;}
+.exp-card{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(26,58,107,0.05);transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+.exp-card:hover{border-color:var(--navy);box-shadow:0 6px 24px rgba(26,58,107,0.12);transform:translateY(-2px);}
+.exp-card-inner{padding:1.4rem 1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;}
+.exp-icon{width:42px;height:42px;border-radius:10px;background:var(--navy-soft);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.exp-card-title{font-weight:500;font-size:0.93rem;margin-bottom:0.2rem;color:var(--navy);}
+.exp-card-org{font-size:0.83rem;color:var(--text2);font-weight:300;margin-bottom:0.4rem;}
+.exp-card-desc{font-size:0.83rem;color:var(--text2);line-height:1.65;font-weight:300;}
+.exp-card-date{font-size:0.73rem;color:var(--text3);white-space:nowrap;}
+.exp-card-badge{font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:4px;background:var(--navy-soft);color:var(--navy);border:0.5px solid rgba(26,58,107,0.15);white-space:nowrap;align-self:flex-start;margin-top:0.4rem;}
+.exp-card-hint{font-size:0.75rem;color:var(--gold);margin-top:0.5rem;display:flex;align-items:center;gap:0.3rem;}
+
+/* EXPERIENCE DETAIL MODAL */
+#exp-detail-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(14,31,61,0.75);backdrop-filter:blur(6px);overflow-y:auto;padding:74px 1rem 2rem;}
+#exp-detail-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+.exp-modal{background:var(--white);border-radius:var(--radius-xl);max-width:860px;width:100%;box-shadow:0 20px 60px rgba(14,31,61,0.25);overflow:hidden;animation:slideUp 0.3s ease;}
+.exp-modal-header{background:var(--navy);padding:1.75rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.exp-modal-badge-wrap{margin-bottom:0.5rem;}
+.exp-modal-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:-0.02em;}
+.exp-modal-org{font-size:0.9rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;font-weight:300;}
+.exp-modal-body{padding:1.75rem 2rem;}
+.exp-modal-meta{display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);}
+.exp-modal-summary{font-size:0.93rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
+.exp-modal-gallery{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.exp-modal-gallery img{height:170px;width:auto;border-radius:10px;cursor:pointer;border:1.5px solid var(--border2);transition:border-color 0.2s,transform 0.2s;object-fit:cover;}
+.exp-modal-gallery img:hover{border-color:var(--gold);transform:scale(1.02);}
+
+/* CONTACT */
+#contact .page-title{color:#fff;}
+#contact .page-label{color:var(--gold2);}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:960px;}
+.contact-cta{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.25;letter-spacing:-0.02em;margin-bottom:1rem;color:#fff;}
+.contact-cta span{color:var(--gold2);}
+.contact-tagline{font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.75;font-weight:300;margin-bottom:2rem;}
+.contact-items{display:flex;flex-direction:column;gap:0.7rem;}
+.contact-item{display:flex;align-items:center;gap:0.85rem;background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:1rem 1.2rem;text-decoration:none;color:#fff;transition:border-color 0.2s,background 0.2s,transform 0.2s;}
+.contact-item:hover{border-color:var(--gold);background:rgba(184,149,42,0.1);transform:translateX(4px);}
+.contact-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.contact-item-label{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:0.12rem;}
+.contact-item-value{font-size:0.88rem;}
+.contact-arrow{color:rgba(255,255,255,0.3);font-size:0.85rem;}
+.contact-form-card{background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.12);border-radius:var(--radius-xl);padding:2rem;}
+.form-title{font-family:'Syne',sans-serif;font-weight:600;font-size:1rem;margin-bottom:1.5rem;color:#fff;}
+.form-group{margin-bottom:1rem;}
+.form-label{font-size:0.78rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;display:block;}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:9px;padding:0.68rem 1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;resize:none;transition:border-color 0.2s;}
+.form-input:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.25);}
+.form-textarea{height:108px;}
+.form-submit{width:100%;background:var(--gold);color:#fff;border:none;border-radius:10px;padding:0.8rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;transition:background 0.2s,transform 0.15s;}
+.form-submit:hover{background:var(--gold2);transform:translateY(-1px);}
+
+/* FOOTER */
+.footer{background:var(--navy3);text-align:center;padding:2rem;border-top:0.5px solid rgba(255,255,255,0.08);font-size:0.78rem;color:rgba(255,255,255,0.35);}
+.footer span{color:var(--gold2);}
+
+/* SCROLL TOP */
+#scrollTop{position:fixed;bottom:2rem;right:2rem;z-index:90;width:42px;height:42px;border-radius:50%;background:var(--navy);border:1px solid var(--gold);color:var(--gold);font-size:1rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(26,58,107,0.3);transition:background 0.2s,transform 0.15s;}
+#scrollTop.visible{display:flex;}
+#scrollTop:hover{background:var(--navy2);transform:translateY(-2px);}
+
+/* FULLSCREEN IMAGE VIEWER */
+#imgViewer{display:none;position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:1rem;}
+#imgViewer.open{display:flex;}
+#imgViewer img{max-width:95vw;max-height:90vh;border-radius:10px;object-fit:contain;}
+.imgviewer-close{position:fixed;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.25);color:#fff;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.imgviewer-close:hover{background:rgba(255,255,255,0.2);}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .about-layout{grid-template-columns:1fr;}
+  .about-card{position:static;}
+  .detail-body{grid-template-columns:1fr;}
+  .contact-layout{grid-template-columns:1fr;}
+  .exp-card-inner{grid-template-columns:auto 1fr;}
+  .exp-card-date{grid-column:2;}
+}
+@media(max-width:640px){
+  nav{padding:0 1.25rem;}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,0.97);border-bottom:1px solid var(--border2);padding:1rem;gap:0.25rem;z-index:99;box-shadow:0 8px 30px rgba(26,58,107,0.1);}
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:0.9rem;padding:0.65rem 1rem;}
+  .hamburger{display:flex;}
+  .nav-status{display:none;}
+  .page-wrap{padding:3rem 1.25rem;}
+  .port-tabs{width:100%;}
+  .port-tab{flex:1;justify-content:center;font-size:0.76rem;padding:0.5rem 0.4rem;}
+  .detail-body,.award-modal-body,.exp-modal-body{padding:1.25rem;}
+}
+
+.avatar {
+  width: 120px;       /* Keep your existing size */
+  height: 120px;      /* Keep your existing size */
+  border-radius: 50%; /* Ensures the container stays perfectly round */
+  overflow: hidden;   /* Clips the image edges to the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Prevents image stretching by cropping it to fit the circle */
+  object-position: center; /* Centers your face in the crop frame */
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Afina Mazrin</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#hero" id="nav-hero">Home</a>
+    <a href="#about" id="nav-about">About</a>
+    <a href="#portfolio" id="nav-portfolio">Portfolio</a>
+    <a href="#references" id="nav-references">References</a>
+    <a href="#contact" id="nav-contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div class="nav-status">Open to Internship</div>
+    <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- ════ HERO ════ -->
+<section class="page-section" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    
+    <h1 class="hero-title">Welcome to My<br><span class="line2">Portfolio.</span></h1>
+    <p class="hero-sub">Hi, I'm Nur Afina Madihah, an Information Technology student from Universiti Teknologi PETRONAS. I bridge the gap between design and technical execution. 
+      Currently looking for an internship opportunity from 7th September 2026 to 9th April 2027.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#portfolio">View My Work →</a>
+      <a class="btn-secondary" href="#contact">Get In Touch</a>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#about"></a>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="page-section" id="about">
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="page-label">01 — About</div>
+    <h2 class="page-title">A little about me.</h2>
+  </div>
+  <div class="about-layout">
+    <div class="about-card">
+      <div class="avatar">
+        <img src="./pics/profile/profileP.png" alt="Afina Mazrin" />
+      </div>
+      <div class="about-name">Nur Afina Madihah binti Muhammad Mazrin</div>
+      <div class="about-role">Malaysia</div>
+      <div class="about-univ">UTP · Information Technology</div>
+      <div class="about-status">Intern · Sept 2026 – Apr 2027</div>
+      <div class="about-links">
+        <div class="about-link" onclick="copyPhone(this,'+601111972904')" style="cursor:pointer;user-select:none;" title="Click to copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="phone-text">+601111972904</span>
+        </div>
+        <a class="about-link" href="mailto:nur_22011697@utp.edu.my">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          nur_22011697@utp.edu.my
+        </a>
+        <a class="about-link" href="https://www.linkedin.com/in/afina-mazrin-016482346/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/afina-mazrin
+        </a>
+        <a class="about-link" href="https://github.com/afinamazrin09" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          github.com/afinamazrin09
+        </a>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-block">
+        <div class="block-title">Profile Summary</div>
+        <p class="about-summary">I am an IT student at Universiti Teknologi PETRONAS with a minor in Corporate Management. 
+          I love bridging the gap between design and development, working on everything from web interfaces to hands on IoT projects. 
+          While I have a solid foundation in coding and database management, my biggest strength is my willingness to learn. 
+          I am always eager to pick up new tools, adapt to different workflows, and take on new challenges. 
+          I look forward to bringing this adaptive mindset to a professional team during my upcoming internship.</p>
+      </div>
+      <div class="section-block">
+        <div class="block-title">Skills</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.02em;">💻 Programming &amp; Web</div>
+            <div class="skills-grid">
+              <span class="skill-tag accent">Python</span><span class="skill-tag accent">PHP</span><span class="skill-tag accent">JavaScript</span>
+              <span class="skill-tag">C++</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
+              <span class="skill-tag">R</span>
+              <span style="font-size:0.72rem;color:var(--text3);align-self:center;font-style:italic;">— Intermediate</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.02em;">🛠️ Frameworks &amp; Tools</div>
+            <div class="skills-grid">
+              <span class="skill-tag accent">Flask</span><span class="skill-tag accent">WebSocket</span><span class="skill-tag accent">REST APIs</span>
+              <span class="skill-tag">OpenSky API</span><span class="skill-tag">Cisco Packet Tracer</span>
+              <span style="font-size:0.72rem;color:var(--text3);align-self:center;font-style:italic;">— Intermediate</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.02em;">🗄️ Databases &amp; Analytics</div>
+            <div class="skills-grid">
+              <span class="skill-tag accent">Oracle SQL</span><span class="skill-tag accent">MySQL</span>
+              <span class="skill-tag">phpMyAdmin</span><span class="skill-tag">Microsoft Excel</span>
+              <span style="font-size:0.72rem;color:var(--text3);align-self:center;font-style:italic;">— Intermediate</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.02em;">🎨 Design &amp; System Security</div>
+            <div class="skills-grid">
+              <span class="skill-tag accent">UI/UX Design</span><span class="skill-tag">OSPF Routing</span>
+              <span class="skill-tag">ACLs</span><span class="skill-tag">SSH</span><span class="skill-tag">SNMP Monitoring</span>
+              <span style="font-size:0.72rem;color:var(--text3);align-self:center;font-style:italic;">— Intermediate</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.02em;">🌐 Languages</div>
+            <div class="skills-grid">
+              <span class="skill-tag" style="background:var(--navy-soft);border-color:rgba(26,58,107,0.3);color:var(--navy);">Malay <span style="font-size:0.68rem;opacity:0.7;margin-left:3px;">Native</span></span>
+              <span class="skill-tag" style="background:var(--navy-soft);border-color:rgba(26,58,107,0.3);color:var(--navy);">English <span style="font-size:0.68rem;opacity:0.7;margin-left:3px;">Professional Fluent</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-block">
+        <div class="block-title">Education</div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Bachelor of Information Technology (Hons)</div>
+              <div class="exp-org">Universiti Teknologi PETRONAS (UTP) | Sept 2024 – Dec 2027</div>
+              <div class="exp-date">CGPA: 3.75</div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Foundation in Technology – Information Technology</div>
+              <div class="exp-org">Universiti Teknologi PETRONAS (UTP) | Sept 2023 – Aug 2024</div>
+              <div class="exp-date">CGPA: 3.86</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════ PORTFOLIO ════ -->
+<section class="page-section" id="portfolio">
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="page-label">02 — Portfolio</div>
+    <h2 class="page-title">What I've built &amp; achieved.</h2>
+    <p class="page-desc">Projects, certifications, awards, and experiences that define my journey at UTP and beyond.</p>
+  </div>
+
+  <div class="port-tabs">
+    <button class="port-tab active" onclick="switchTab('projects',this)">Projects <span class="port-tab-count" id="cnt-projects">9</span></button>
+    <button class="port-tab" onclick="switchTab('certificates',this)">Certificates <span class="port-tab-count" id="cnt-certs">8</span></button>
+    <button class="port-tab" onclick="switchTab('awards',this)">Awards <span class="port-tab-count" id="cnt-awards">6</span></button>
+    <button class="port-tab" onclick="switchTab('experiences',this)">Experience <span class="port-tab-count" id="cnt-exp">11</span></button>
+  </div>
+
+  <!-- PROJECTS TAB -->
+  <div class="tab-panel active" id="tab-projects">
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+
+  <!-- CERTS TAB -->
+  <div class="tab-panel" id="tab-certificates">
+    <p style="font-size:0.82rem;color:var(--text2);margin-bottom:1.5rem;font-weight:300;">Click any certificate card to view it full-size.</p>
+    <div class="certs-grid" id="certsGrid"></div>
+  </div>
+
+  <!-- AWARDS TAB -->
+  <div class="tab-panel" id="tab-awards">
+    <div style="margin-bottom:1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+      <span style="font-size:0.82rem;color:var(--text2);font-weight:300;margin-right:0.5rem;">Categories:</span>
+      <span style="color:#9a7a10;background:rgba(184,149,42,0.1);padding:3px 9px;border-radius:4px;font-size:0.73rem;font-weight:600;border:0.5px solid rgba(184,149,42,0.25);">A · Gold</span>
+      <span style="color:#666;background:rgba(140,140,140,0.1);padding:3px 9px;border-radius:4px;font-size:0.73rem;font-weight:600;border:0.5px solid rgba(140,140,140,0.2);">B · Silver</span>
+      <span style="color:#9a5e2e;background:rgba(160,100,50,0.1);padding:3px 9px;border-radius:4px;font-size:0.73rem;font-weight:600;border:0.5px solid rgba(160,100,50,0.2);">C · Bronze</span>
+      <span style="color:var(--navy);background:var(--navy-soft);padding:3px 9px;border-radius:4px;font-size:0.73rem;font-weight:600;border:0.5px solid rgba(26,58,107,0.15);">D · Participation</span>
+    </div>
+    <div class="awards-grid" id="awardsGrid"></div>
+  </div>
+
+  <!-- EXPERIENCES TAB -->
+  <div class="tab-panel" id="tab-experiences">
+    <div class="exp-subtabs">
+      <button class="exp-subtab active" onclick="switchSubTab('working',this)">💼 Working</button>
+      <button class="exp-subtab" onclick="switchSubTab('leadership',this)">🌟 Leadership</button>
+      <button class="exp-subtab" onclick="switchSubTab('volunteer',this)">🤝 Volunteer</button>
+    </div>
+    <div class="exp-subtab-panel active" id="subtab-working">
+      <div class="exp-cards" id="workingCards"></div>
+    </div>
+    <div class="exp-subtab-panel" id="subtab-leadership">
+      <div class="exp-cards" id="leadershipCards"></div>
+    </div>
+    <div class="exp-subtab-panel" id="subtab-volunteer">
+      <div class="exp-cards" id="volunteerCards"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════ REFERENCES ════ -->
+<section class="page-section" id="references" style="background:var(--white);min-height:auto;padding-top:64px;">
+<div class="page-wrap" style="padding-bottom:4rem;">
+  <div class="page-header">
+    <div class="page-label">03 — References</div>
+    <h2 class="page-title">References.</h2>
+    <p class="page-desc">The following individuals can speak to my academic performance, technical skills, and professional conduct.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
+
+    <!-- Reference 1 -->
+    <div style="background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:0 2px 12px rgba(26,58,107,0.06);border-left:4px solid var(--gold);display:flex;flex-direction:column;gap:0.5rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);">Saipunidzam B Mahamad</div>
+      <div style="font-size:0.85rem;font-style:italic;color:var(--gold);font-weight:500;">Senior Lecturer (Computing)</div>
+      <div style="font-size:0.84rem;color:var(--text2);font-weight:300;line-height:1.6;">Universiti Teknologi PETRONAS</div>
+      <div style="height:0.5px;background:var(--border);margin:0.25rem 0;"></div>
+      <div style="font-size:0.83rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex-shrink:0;color:var(--text3)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +6053687408
+      </div>
+      <div style="font-size:0.83rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex-shrink:0;color:var(--text3)"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        <a href="mailto:saipunidzam@utp.edu.my" style="color:var(--navy);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--navy)'">saipunidzam@utp.edu.my</a>
+      </div>
+    </div>
+
+    <!-- Reference 2 -->
+    <div style="background:var(--white);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:0 2px 12px rgba(26,58,107,0.06);border-left:4px solid var(--navy);display:flex;flex-direction:column;gap:0.5rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);">Wan Sharizan bt Wan Mamat Pauzam</div>
+      <div style="font-size:0.85rem;font-style:italic;color:var(--gold);font-weight:500;">Programme Leader (Foundation in Business Management and Computing)</div>
+      <div style="font-size:0.84rem;color:var(--text2);font-weight:300;line-height:1.6;">Centre for Foundation Studies, Universiti Teknologi PETRONAS</div>
+      <div style="height:0.5px;background:var(--border);margin:0.25rem 0;"></div>
+      <div style="font-size:0.83rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex-shrink:0;color:var(--text3)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +6053688195
+      </div>
+      <div style="font-size:0.83rem;color:var(--text2);display:flex;align-items:center;gap:0.5rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex-shrink:0;color:var(--text3)"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        <a href="mailto:wansharizan@utp.edu.my" style="color:var(--navy);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--navy)'">wansharizan@utp.edu.my</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="page-section" id="contact">
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="page-label">04 — Contact</div>
+    <h2 class="page-title">Let's connect.</h2>
+  </div>
+  <div class="contact-layout" style="grid-template-columns:1fr;max-width:560px;">
+    <div>
+      <p class="contact-cta">Always open to<br><span>new opportunities.</span></p>
+      <p class="contact-tagline">Whether you have an internship opening, a collaboration idea, or just want to say hi — feel free to reach out. I typically reply within 24 hours.</p>
+      <div class="contact-items">
+        <div class="contact-item" onclick="copyPhone(this,'+601111972904')" style="cursor:pointer;user-select:none;" title="Click to copy">
+          <div class="contact-icon" style="background:rgba(184,149,42,0.15);color:var(--gold2);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div style="flex:1"><div class="contact-item-label">Phone</div><div class="contact-item-value phone-text">+601111972904</div></div>
+          <div class="contact-arrow" id="phone-arrow">→</div>
+        </div>
+        <a class="contact-item" href="mailto:nur_22011697@utp.edu.my">
+          <div class="contact-icon" style="background:rgba(184,149,42,0.15);color:var(--gold2);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
+          <div style="flex:1"><div class="contact-item-label">Email</div><div class="contact-item-value">nur_22011697@utp.edu.my</div></div>
+          <div class="contact-arrow">→</div>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/afina-mazrin-016482346/" target="_blank">
+          <div class="contact-icon" style="background:rgba(10,149,212,0.15);color:#4da8d8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div style="flex:1"><div class="contact-item-label">LinkedIn</div><div class="contact-item-value">linkedin.com/in/afina-mazrin</div></div>
+          <div class="contact-arrow">→</div>
+        </a>
+        <a class="contact-item" href="https://github.com/afinamazrin09" target="_blank">
+          <div class="contact-icon" style="background:rgba(255,255,255,0.08);color:#fff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg></div>
+          <div style="flex:1"><div class="contact-item-label">GitHub</div><div class="contact-item-value">github.com/afinamazrin09</div></div>
+          <div class="contact-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">© 2025 <span>Nur Afina Madihah binti Muhammad Mazrin</span> · Universiti Teknologi PETRONAS</div>
+</section>
+
+<!-- PROJECT DETAIL OVERLAY -->
+<div id="project-detail-overlay" onclick="handleOverlayClick(event,'project-detail-overlay')">
+  <div class="detail-modal">
+    <div class="detail-header">
+      <div class="detail-header-left">
+        <div class="detail-type" id="d-type"></div>
+        <div class="detail-title-text" id="d-title"></div>
+      </div>
+      <button class="detail-close" onclick="closeModal('project-detail-overlay')">✕</button>
+    </div>
+    <div class="detail-gallery" id="d-gallery"></div>
+    <div class="detail-body">
+      <div>
+        <p class="detail-desc-text" id="d-desc"></p>
+        <div class="block-title-sm">Key Features</div>
+        <ul class="feature-list" id="d-features"></ul>
+      </div>
+      <div class="detail-sidebar">
+        <div class="sidebar-card">
+          <div class="block-title-sm">Technologies</div>
+          <div class="tech-list" id="d-tech"></div>
+        </div>
+        <div class="sidebar-card">
+          <div class="block-title-sm">Links</div>
+          <div class="detail-actions">
+            <a class="action-btn gold" id="d-demo" href="#" target="_blank">🚀 Live Demo</a>
+            <a class="action-btn outline" id="d-github" href="#" target="_blank">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              GitHub Repo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARD DETAIL OVERLAY -->
+<div id="award-detail-overlay" onclick="handleOverlayClick(event,'award-detail-overlay')">
+  <div class="award-modal">
+    <div class="award-modal-header">
+      <div style="flex:1">
+        <div class="award-modal-cat-wrap"><span class="award-cat" id="aw-cat"></span></div>
+        <div class="award-modal-title" id="aw-title"></div>
+      </div>
+      <button class="detail-close" onclick="closeModal('award-detail-overlay')">✕</button>
+    </div>
+    <div class="award-modal-body">
+      <div class="award-modal-meta">
+        <div class="award-meta-item"><div class="award-meta-label">Event</div><div class="award-meta-value" id="aw-event"></div></div>
+        <div class="award-meta-item"><div class="award-meta-label">Location</div><div class="award-meta-value" id="aw-location"></div></div>
+        <div class="award-meta-item"><div class="award-meta-label">Date</div><div class="award-meta-value" id="aw-date"></div></div>
+        <div class="award-meta-item"><div class="award-meta-label">Level</div><div class="award-meta-value" id="aw-level"></div></div>
+      </div>
+      <p class="award-modal-summary" id="aw-summary"></p>
+      <div class="award-modal-gallery" id="aw-gallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE DETAIL OVERLAY -->
+<div id="exp-detail-overlay" onclick="handleOverlayClick(event,'exp-detail-overlay')">
+  <div class="exp-modal">
+    <div class="exp-modal-header">
+      <div style="flex:1">
+        <div class="exp-modal-badge-wrap"><span class="exp-card-badge" id="em-badge"></span></div>
+        <div class="exp-modal-title" id="em-title"></div>
+        <div class="exp-modal-org" id="em-org"></div>
+      </div>
+      <button class="detail-close" onclick="closeModal('exp-detail-overlay')">✕</button>
+    </div>
+    <div class="exp-modal-body">
+      <div class="exp-modal-meta">
+        <div class="award-meta-item"><div class="award-meta-label">Period</div><div class="award-meta-value" id="em-date"></div></div>
+        <div class="award-meta-item"><div class="award-meta-label">Role</div><div class="award-meta-value" id="em-role"></div></div>
+      </div>
+      <p class="exp-modal-summary" id="em-summary"></p>
+      <div class="exp-modal-gallery" id="em-gallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CERT LIGHTBOX -->
+<div id="cert-lightbox" onclick="closeModal('cert-lightbox')">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeModal('cert-lightbox')">✕</button>
+    <img id="lightbox-img" src="" alt="Certificate"/>
+    <div class="lightbox-name" id="lightbox-name"></div>
+  </div>
+</div>
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div id="imgViewer" onclick="closeModal('imgViewer')">
+  <button class="imgviewer-close" onclick="closeModal('imgViewer')">✕</button>
+  <img id="imgViewerSrc" src="" alt=""/>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// ██████  DATA — EDIT EVERYTHING BELOW THIS LINE
+// ═══════════════════════════════════════════════════════════
+
+// ── PROJECTS ──────────────────────────────────────────────
+// HOW TO ADD IMAGES:
+//   coverImg : ONE image shown on the project card (replaces blue bg).
+//              Path example: 'portfolio/pics/project/aircraft_cover.jpg'
+//              Leave as null to keep the blue background with number.
+//   images[] : Gallery shown inside the detail modal (unlimited).
+//              Path example: ['portfolio/pics/project/aircraft1.jpg',
+//                             'portfolio/pics/project/aircraft2.jpg']
+//              Leave as [] if you have no images yet.
+const projects = [
+  {
+    num:'01', type:'Jan 2026 – Mar 2026',
+    title:'Real-Time Aircraft Telemetry System',
+    desc:'A real-time IoT platform collecting aircraft telemetry over Perak state with live WebSocket dashboard push and automatic airport detection from flight patterns.',
+    features:[
+      '72-hour continuous data collection every 2 minutes',
+      'Real-time WebSocket push to dashboard',
+      'Automatic airport detection from grounded aircraft',
+      'Offline-capable CSV persistence',
+      'API rate limit error handling'
+    ],
+    tech:['Python','Flask','WebSocket','OpenSky API','JavaScript','SQLite'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Real-Time-Aircraft-Telemetry-System', showDemo:false,
+    coverImg: 'pics/project/11.png', // e.g. 'portfolio/pics/project/aircraft_cover.jpg'
+    images:['pics/project/11.png','pics/project/12.png','pics/project/13.png','pics/project/14.png','pics/project/15.png','pics/project/16.png']         // e.g. ['portfolio/pics/project/aircraft1.jpg','portfolio/pics/project/aircraft2.jpg']
+  },
+  {
+    num:'02', type:'Jan 2025 – Mar 2025',
+    title:'Cahaya Telekung E-Commerce Store',
+    desc:'C# full-stack e-commerce platform for prayer garments with role-based access, shopping cart, order state machine, and multi-method payment processing.',
+    features:[
+      'Role-based access (Admin + Customer roles)',
+      'Shopping cart with persistent storage',
+      'Order tracking (Pending → Shipped → Delivered)',
+      'Multi-payment (Online Banking + COD with receipt upload)',
+      'OOP architecture (inheritance, polymorphism, encapsulation)'
+    ],
+    tech:['C#','ASP.NET Core MVC','Entity Framework Core','Razor Views','SQL Server'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Cahaya-Telekung-E-Commerce-Store', showDemo:false,
+    coverImg: 'pics/project/2UML.png',   // e.g. 'portfolio/pics/project/cahaya_cover.jpg'
+    images:['pics/project/2UML.png','pics/project/21.png','pics/project/22.png','pics/project/23.png']         // e.g. ['portfolio/pics/project/cahaya1.jpg','portfolio/pics/project/cahaya2.jpg']
+  },
+  {
+    num:'03', type:'Sept 2024 - Nov 2024',
+    title:'Vehicle Maintenance Scheduling System',
+    desc:'An enterprise database managing service scheduling, parts inventory, warranty tracking, and supplier payments across 27 entities with 15 production queries.',
+    features:[
+      '27 entities with 26 relationship types',
+      '3NF normalization eliminating transitive dependencies',
+      '15 SELECT queries (joins, aggregation, subqueries)',
+      '5 UPDATE + 6 DELETE operations',
+      'Complete data dictionary'
+    ],
+    tech:['Oracle SQL','ER Diagram','Normalisation','SQL'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Cahaya-Telekung-E-Commerce-Store', showDemo:false,
+    coverImg: 'pics/project/31.png',   // e.g. 'portfolio/pics/project/vehicle_cover.jpg'
+    images:['pics/project/31.png','pics/project/32.png']         // e.g. ['portfolio/pics/project/vehicle1.jpg','portfolio/pics/project/vehicle2.jpg']
+  },
+  {
+    num:'04', type:'Sept 2025 - Nov 2025',
+    title:'Enterprise Network Infrastructure Design',
+    desc:'A secure network infrastructure for 38 employees across 4 departments with OSPF routing, SSH encryption, and department-optimised topologies.',
+    features:[
+      'Dual-core router architecture with OSPF failover',
+      'SSHv2 encrypted remote management',
+      'SNMPv3 centralized monitoring',
+      'Stateful firewall ACLs',
+      'WPA2-Enterprise upgrade path identified'
+    ],
+    tech:['Cisco Packet Tracer','OSPF','SSH','SNMP','ACLs','Subnetting'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Enterprise-Network-Infrastructure-Design', showDemo:false,
+    coverImg: 'pics/project/41.png',   // e.g. 'portfolio/pics/project/network_cover.jpg'
+    images:['pics/project/41.png','pics/project/42.png','pics/project/43.png','pics/project/44.png','pics/project/45.png','pics/project/6.png',]         // e.g. ['portfolio/pics/project/network1.jpg','portfolio/pics/project/network2.jpg']
+  },
+  {
+    num:'05', type:'Jan 2026 – Mar 2026',
+    title:'Loan Prediction Model',
+    desc:'A predictive model that identifies customers likely to accept a personal loan, enabling targeted marketing campaigns and reducing acquisition costs.',
+    features:[
+      '96.6% prediction accuracy using k-NN algorithm',
+      'Automated data cleaning for negative tenure values',
+      'Min-max normalization preventing income-biased results',
+      'Optimal k=3 selection through systematic tuning',
+      'Confusion matrix validation metrics'
+    ],
+    tech:['R','caret','ggplot2','k-Nearest Neighbors','dplyr'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Loan-Prediction-Model-', showDemo:false,
+    coverImg: 'pics/project/51.png',   // e.g. 'portfolio/pics/project/loan_cover.jpg'
+    images:['pics/project/51.png','pics/project/52.png',]         // e.g. ['portfolio/pics/project/loan1.jpg','portfolio/pics/project/loan2.jpg']
+  },
+  {
+    num:'06', type:'Jan 2025 – Mar 2025',
+    title:'UTP Cafeteria Food Ordering System',
+    desc:'A web platform eliminating 15–20 minute queue wait times and 15% order miscommunication through digital pre-ordering with real-time status tracking.',
+    features:[
+      'Pre-order scheduling',
+      'Real-time order status (Preparing → Ready → Delivered)',
+      'Multi-payment (cash-on-delivery + online payment)',
+      'Admin dashboard for menu management',
+    ],
+    tech:['C#','HTML','CSS','JavaScript','PHP','MySQL'],
+    demo:'http://waipfoodordering.atwebpages.com/index.php', github:'https://github.com/afinamazrin09/UTP-Cafeteria-Food-Ordering-System',
+    coverImg: 'pics/project/61.png',   // e.g. 'portfolio/pics/project/cafeteria_cover.jpg'
+    images:['pics/project/61.png','pics/project/62.png','pics/project/63.png','pics/project/64.png']         // e.g. ['portfolio/pics/project/cafeteria1.jpg','portfolio/pics/project/cafeteria2.jpg']
+  },
+  {
+    num:'07', type:'Sept 2024 - Nov 2024',
+    title:'Contact Management System',
+    desc:'A production-ready desktop application replacing paper address books with complete CRUD operations and persistent file storage.',
+    features:[
+      'Multi-criteria search (name, email, phone)',
+      'Formatted tabular display with column alignment',
+      'Automatic file persistence (CONTACT.txt)',
+      'Menu-driven continuous operation',
+      'Complete CRUD operations'
+    ],
+    tech:['C++','iomanip','fstream','File I/O'],
+    demo:'https://your-demo.com', github:'https://github.com/afinamazrin09/Contact-Management-System', showDemo:false,
+    coverImg: 'pics/project/71.png',   // e.g. 'portfolio/pics/project/contact_cover.jpg'
+    images:['pics/project/71.png','pics/project/72.png','pics/project/73.png','pics/project/74.png']         // e.g. ['portfolio/pics/project/contact1.jpg','portfolio/pics/project/contact2.jpg']
+  },
+  {
+    num:'08', type:'Sept 2025 - Nov 2025',
+    title:'Tribagus Hotel Booking System',
+    desc:'A hotel booking interface redesign applying 12 HCI principles with voice search, 360° visuals, and usability testing achieving 100% task completion.',
+    features:[
+      'Voice-to-text smart search with visual feedback',
+      '360° hotel previews with color-coded pricing',
+      'Persistent navigation on every page',
+      'Country-based trip budget planner',
+      'Always-accessible floating chatbot'
+    ],
+    tech:['Figma','HCI Principles','Usability Testing','Prototyping','User Research'],
+    demo:'https://www.figma.com/proto/wz81YiC6ntM3ykJBn6KN36/TRIBAGUS?node-id=590-5751&starting-point-node-id=590%3A5751', github:'https://github.com', showGithub:false,
+    coverImg: 'pics/project/81.png',   // e.g. 'portfolio/pics/project/tribagus_cover.jpg'
+    images:['pics/project/82.png','pics/project/81.png','pics/project/83.png','pics/project/84.png','pics/project/85.png','pics/project/86.png','pics/project/87.png','pics/project/88.png']         // e.g. ['portfolio/pics/project/tribagus1.jpg','portfolio/pics/project/tribagus2.jpg']
+  }
+];
+
+// ── CERTIFICATES ───────────────────────────────────────────
+// HOW TO ADD IMAGES:
+//   img: file path relative to portfolio.html.
+//        Example: 'portfolio/pics/Certificate/aws.jpg'
+//        Leave as null to show a placeholder (image-not-yet-added state).
+//        Clicking a card with an image opens it full-size.
+const certs = [
+  { emoji:'🤖', name:'AI For MY Future',                        issuer:'Microsoft',                         date:'May 2026',  img: 'pics/certificate/AI.png'  /* 'portfolio/pics/Certificate/ai_for_my_future.jpg' */ },
+  { emoji:'🧠', name:'AI Ready Malaysia: Student Edition',      issuer:'Pepper Labs Social Enterprise',     date:'May 2026',  img: 'pics/certificate/MA.png'  /* 'portfolio/pics/Certificate/ai_ready_malaysia.jpg' */ },
+  ];
+
+// ── AWARDS ─────────────────────────────────────────────────
+// HOW TO ADD IMAGES:
+//   coverImg : ONE image shown on the award card (optional).
+//              Example: 'portfolio/pics/award/myhack_cover.jpg'
+//              Leave as null to show the emoji icon instead.
+//   images[] : Multiple photos shown in the detail modal (unlimited).
+//              Example: ['portfolio/pics/award/myhack1.jpg',
+//                        'portfolio/pics/award/myhack2.jpg']
+//              Leave as [] if no images yet.
+// cat values: 'a' = Gold, 'b' = Silver, 'c' = Bronze, 'd' = Participation
+const awards = [
+  {
+    cat:'a', icon:'🏅',
+    title:'Gold Medal — Foundation Sports Festival 2024',
+    event:'Foundation Sports Festival 2024', location:'UTP, Perak', date:'Jun 2024', level:'University',
+    summary:'Awarded the Gold Medal in Netball at the Foundation Sports Festival 2024, representing the Information Technology cohort. The team demonstrated strong coordination, strategy, and sportsmanship throughout the tournament, advancing through all rounds to clinch the top position. This achievement reflects not only athletic ability but also teamwork, discipline, and commitment developed through consistent training alongside academic responsibilities.',
+    coverImg: 'pics/award/net2.jpeg',   // e.g. 'portfolio/pics/award/sports_cover.jpg'
+    images:['pics/award/net2.jpeg','pics/award/net.jpeg','pics/award/net3.jpeg']         // e.g. ['portfolio/pics/award/sports1.jpg','portfolio/pics/award/sports2.jpg']
+  },
+  {
+    cat:'a', icon:'🏆',
+    title:"CFS Dean's Award — September 2024",
+    event:"Centre for Foundation Studies Dean's Award", location:'UTP, Perak', date:'Sept 2024', level:'University',
+    summary:"Received the CFS (Centre for Foundation Studies) Dean's Award for the September 2024 semester, granted to foundation students who achieve outstanding academic performance and demonstrate exemplary conduct. This award marks one of the highest academic distinctions at the foundation level and reflects the strong academic foundation built prior to entering the degree programme.",
+    coverImg: 'pics/award/CFS.png',   // e.g. 'portfolio/pics/award/cfs_dean.jpg'
+    images:['pics/award/CFS.png']
+  },
+  {
+    cat:'a', icon:'🎖️',
+    title:"Dean's List — January 2025 Semester",
+    event:"Dean's List Award", location:'UTP, Perak', date:'Jan 2025', level:'University',
+    summary:"Achieved placement on the Dean's List for the January 2025 Semester at Universiti Teknologi PETRONAS, recognising academic excellence and a high CGPA standing among peers in the Faculty of Computing and Information Technology. This recognition reflects consistent dedication to academic performance alongside active participation in co-curricular activities.",
+    coverImg: 'pics/award/J25.png',   // e.g. 'portfolio/pics/award/deanslist_jan2025.jpg'
+    images:['pics/award/J25.png','pics/award/j251.jpeg','pics/award/j252.jpeg']
+  },
+  {
+    cat:'a', icon:'🎖️',
+    title:"Dean's List — May 2025 Semester",
+    event:"Dean's List Award", location:'UTP, Perak', date:'May 2025', level:'University',
+    summary:"Achieved placement on the Dean's List for the May 2025 Semester at Universiti Teknologi PETRONAS, maintaining a high CGPA and demonstrating sustained academic excellence across a demanding semester of coursework in Information Technology.",
+    coverImg: 'pics/award/M25.png',
+    images:['pics/award/M25.png']
+  },
+  {
+    cat:'a', icon:'🎖️',
+    title:"Dean's List — September 2025 Semester",
+    event:"Dean's List Award", location:'UTP, Perak', date:'Sept 2025', level:'University',
+    summary:"Achieved placement on the Dean's List for the September 2025 Semester at Universiti Teknologi PETRONAS. This marks the third consecutive semester on the Dean's List, reflecting a consistent pattern of academic excellence and high performance across all registered courses.",
+    coverImg: 'pics/award/S25.png',
+    images:['pics/award/S25.png']
+  },
+  {
+    cat:'a', icon:'🎖️',
+    title:"Dean's List — January 2026 Semester",
+    event:"Dean's List Award", location:'UTP, Perak', date:'Jan 2026', level:'University',
+    summary:"Achieved placement on the Dean's List for the January 2026 Semester at Universiti Teknologi PETRONAS, continuing a streak of four consecutive Dean's List recognitions. This sustained achievement demonstrates strong academic discipline and the ability to balance coursework with leadership and volunteer commitments.",
+    coverImg: null,
+    images:[]
+  },
+  {
+    cat:'d', icon:'🎖️',
+    title:"Hackathon Participant – Microsoft AI4A Hackathon",
+    event:"Microsoft AI4A Hackathon", location:'UTP, Perak', date:'Jun 2025', level:'International',
+    summary:"Applied rapid prototyping and collaborative problem-solving to design and pitch an AI-driven conceptual solution under strict deadlines.",
+    coverImg: 'pics/award/hackathon.png',
+    images:['pics/award/hackathon.png','pics/award/h4.jpeg','pics/award/h3.jpeg','pics/award/h2.jpeg']
+  }
+];
+
+// ── EXPERIENCES ────────────────────────────────────────────
+// HOW TO ADD IMAGES:
+//   images[]: Multiple photos shown in the detail modal (unlimited).
+//             Example: ['portfolio/pics/experience/role1.jpg',
+//                       'portfolio/pics/experience/role2.jpg']
+//             Leave as [] if no images yet — the modal still works fine.
+// type values: 'working', 'leadership', or 'volunteer'
+const experiences = [
+  // ── WORKING ──
+  {
+    type:'working', icon:'📐',
+    title:'Fundamental Mathematics Tutor (Part-Time)',
+    org:'Academic Operation Unit, Universiti Teknologi PETRONAS',
+    date:'Jan 2025 – Dec 2025', role:'Part-Time Tutor',
+    shortDesc:'Mentored UTP foundation students through data-tracked revision strategies, enabling 80% of students to achieve Grade A results.',
+    summary:'Operating as a Part-Time Fundamental Mathematics Tutor within the Academic Operation Unit at Universiti Teknologi PETRONAS, I mentored foundation students in analytical and core mathematical concepts. By formulating targeted revision strategies and tracking detailed performance data, I delivered an optimized, data-driven approach to student support. These continuous tracking methods directly improved learning performance, successfully enabling 80% of my assigned students to achieve Grade A results.',
+    images:[]   // e.g. ['portfolio/pics/experience/tutor1.jpg','portfolio/pics/experience/tutor2.jpg']
+  },
+  // ── LEADERSHIP ──
+  {
+    type:'leadership', icon:'🏛️',
+    title:'Vice President II – UTPHost Club',
+    org:'UTPHost Club, UTP',
+    date:'May 2026 – Aug 2026', role:'Vice President II',
+    shortDesc:'Co-directed internal operations for a 60-member organization, formulating structured frameworks that boosted cross-functional efficiency by 35%.',
+    summary:'Serving as the Vice President II of the UTPHost Club, I leveraged strong strategic planning and coordination skills to co-direct internal operations for a 60-member student organization. Faced with conditions of ambiguity, I took the initiative to formulate structured operational frameworks that successfully streamlined internal workflows. These management interventions directly boosted cross-functional department efficiency by 35% and ensured highly consistent results across club initiatives.',
+    images:['pics/experience/11.jpeg','pics/experience/12.jpeg','pics/experience/13.jpg']   // e.g. ['portfolio/pics/experience/utphost1.jpg','portfolio/pics/experience/utphost2.jpg']
+  },
+  {
+    type:'leadership', icon:'📋',
+    title:'Secretary I – D.R.O.N.E. 1.0 & 2.0',
+    org:'AeroXpert, UTP',
+    date:'Jun 2025 – Apr 2026', role:'Secretary I',
+    shortDesc:'Accelerated approval timelines by authoring comprehensive project proposals a week early and cutting post-meeting documentation lag to under 3 hours.',
+    summary:'In my administrative role as Secretary I for the D.R.O.N.E. 1.0 and 2.0 initiatives, I managed the end-to-end documentation workflow to maintain rigid project momentum. I successfully accelerated administrative approval timelines by authoring comprehensive project proposals a full week ahead of schedule. Furthermore, I minimized post-meeting administrative friction by reducing documentation lag to under 3 hours, keeping multi-committee stakeholders perfectly synchronized.',
+    images:['pics/experience/23.jpeg','pics/experience/26.jpeg','pics/experience/21.jpeg','pics/experience/25.jpeg','pics/experience/24.jpeg','pics/experience/27.jpeg']   // e.g. ['portfolio/pics/experience/drone1.jpg','portfolio/pics/experience/drone2.jpg']
+  },
+  {
+    type:'leadership', icon:'💰',
+    title:'Treasurer – Iftar Kasih UTPHost',
+    org:'UTPHost Club, UTP',
+    date:'Jan 2026 – Mar 2026', role:'Treasurer',
+    shortDesc:'Managed a strict RM1,130 total budget and secured RM300 in external corporate sponsorship to fund 27% of total event requirements.',
+    summary:'As the Treasurer for Iftar Kasih UTPHost, I headed the financial administration, documentation, and expense tracking for an allocated RM1,130 total event budget. I successfully expanded the financial capability of the event by securing RM300 in external corporate sponsorship funding, which contributed 27% of the total requirements. Through strict fiscal tracking, I completely eliminated budget overruns and ensured complete post-event transparency reporting and total accountability.',
+    images:['pics/experience/31.jpeg','pics/experience/32.jpeg','pics/experience/33.jpeg']   // e.g. ['portfolio/pics/experience/iftar1.jpg','portfolio/pics/experience/iftar2.jpg']
+  },
+  {
+    type:'leadership', icon:'🎮',
+    title:'Head of Activities & Games / Ceremony & Protocol – Permainan Kita',
+    org:'Permainan Kita Event, UTP',
+    date:'Sept 2025 – Nov 2025', role:'Head of Activities & Games / Ceremony & Protocol',
+    shortDesc:'Directed a 6-member committee to coordinate 40 participants while reducing manual data entry times by 85% via an automated Excel scoring system.',
+    summary:'Operating as the Head of Activities & Games for the Permainan Kita Event, I directed a 6-member committee to coordinate interactive workflows for 40 active participants. To optimize back-end operations, I engineered an automated Excel scoring system that successfully bypassed data entry bottlenecks. This technical intervention reduced manual data entry processing times by 85%, ensuring rapid, error-free winner tabulations and a highly punctual event schedule.',
+    images:['pics/experience/pkCert.png','pics/experience/41.jpeg','pics/experience/45.jpeg','pics/experience/42.jpeg','pics/experience/43.jpeg']   // e.g. ['portfolio/pics/experience/permainan1.jpg','portfolio/pics/experience/permainan2.jpg']
+  },
+  
+  // ── VOLUNTEER ──
+  {
+    type:'volunteer', icon:'🎓',
+    title:'Usherette – UTP 25th Convocation 2025',
+    org:'Universiti Teknologi PETRONAS',
+    date:'Oct 2025', role:'Usherette',
+    shortDesc:'Directed guest flows and real-time seating tracking for thousands of attendees to ensure the flawless execution of a high-profile graduation milestone.',
+    summary:'Serving as an official university usherette during the high-profile UTP 25th Convocation, I managed guest flows, crowd logistics, and seating tracking systems for thousands of attendees. Operating under fast-paced floor conditions, I provided clear directional assistance and resolved real-time seating misallocations under high-pressure scenarios. This role required strong communication skills to preserve ceremony decorum, manage attendee inquiries, and support the punctual execution of a major institutional milestone.',
+    images:['pics/experience/v11.jpg','pics/experience/v12.jpg','pics/experience/v13.jpg']   // e.g. ['portfolio/pics/experience/convocation1.jpg','portfolio/pics/experience/convocation2.jpg']
+  },
+  {
+    type:'volunteer', icon:'🌙',
+    title:'Usherette – Majlis Sambutan Nuzul Al-Quran Negeri Perak Darul Ridzuan 1447H/2026M',
+    org:'Universiti Teknologi PETRONAS',
+    date:'Mar 2026', role:'Usherette',
+    shortDesc:'Maintained event scheduling punctuality by managing guest flows and structured seating layout arrangements for a large-scale event.',
+    summary:'During the large-scale Nuzul Quran celebration, I assisted in managing guest flow and crowd logistics while organizing structured seating layouts. My role centered on maintaining an orderly environment and providing immediate assistance to attendees to ensure the smooth execution of the event. This structured approach minimized entryway congestion and supported the overall scheduling punctuality of the spiritual gathering.',
+    images:['pics/experience/v21.jpeg','pics/experience/v22.jpeg','pics/experience/v23.jpeg','pics/experience/v24.jpeg']   // e.g. ['portfolio/pics/experience/nuzul1.jpg','portfolio/pics/experience/nuzul2.jpg']
+  },
+  {
+    type:'volunteer', icon:'🍲',
+    title:'Volunteer – Bubur Lambuk Ihya\' Ramadan',
+    org:'Masjid Bandar Universiti',
+    date:'Mar 2026', role:'Volunteer',
+    shortDesc:'Managed bulk ingredient preparation and collaborative distribution workflows to optimize community outreach for local families.',
+    summary:'Contributing to a community outreach initiative at Masjid Bandar Universiti, I managed bulk resource preparation and large-scale cooking operations within a highly collaborative volunteer team. I efficiently processed cooking ingredients and coordinated back-end distribution workflows to optimize resource allocation. This collective effort maximized community reach and guaranteed the timely distribution of nutritional culinary provisions to local families during the holy month.',
+    images:['pics/experience/v31.jpeg','pics/experience/v32.jpeg','pics/experience/v33.jpeg']   // e.g. ['portfolio/pics/experience/bubur1.jpg','portfolio/pics/experience/bubur2.jpg']
+  },
+  {
+    type:'volunteer', icon:'🎨',
+    title:'Volunteer – RACUTP Program Keindahan Pekan Manjung',
+    org:'RACUTP, Pekan Manjung',
+    date:'Oct 2025', role:'Volunteer',
+    shortDesc:'Executed targeted physical urban revitalization tasks, including painting public buildings, to elevate local infrastructure aesthetics.',
+    summary:'Participating as an active volunteer for the RACUTP urban revitalization project, I executed targeted physical improvement tasks, including painting public buildings and road dividers. This initiative focused heavily on elevating local infrastructure aesthetics and refreshing public spaces for residents. Through structured teamwork, we successfully enhanced the safety visibility of dividers and modernized community public areas.',
+    images:['pics/experience/v41.jpeg']   // e.g. ['portfolio/pics/experience/racutp1.jpg','portfolio/pics/experience/racutp2.jpg']
+  },
+  {
+    type:'volunteer', icon:'🌱',
+    title:'Volunteer – JAKOA Motivational Program',
+    org:'JAKOA Program',
+    date:'May 2024', role:'Volunteer Facilitator',
+    shortDesc:'Facilitated interactive educational workshops and mentored indigenous youth to cultivate confidence and academic motivation.',
+    summary:'Participating as an active volunteer facilitator for the JAKOA Motivational Program, I contributed to community educational outreach aimed at primary and secondary indigenous students. I helped co-facilitate interactive educational workshops and mentored young participants through tailored peer exercises. This experience focused heavily on building conversational confidence, inspiring long-term academic motivation, and fostering essential teamwork skills within an inclusive learning environment.',
+    images:['pics/experience/v50.png','pics/experience/v51.jpeg','pics/experience/v52.jpeg']   // e.g. ['portfolio/pics/experience/jakoa1.jpg','portfolio/pics/experience/jakoa2.jpg']
+  }
+];
+
+// ═══════════════════════════════════════════════════════════
+// ██████  END OF DATA — DO NOT EDIT BELOW THIS LINE
+// ═══════════════════════════════════════════════════════════
+
+// ── RENDER PROJECTS ──
+function buildProjects() {
+  document.getElementById('cnt-projects').textContent = projects.length;
+  document.getElementById('projectsGrid').innerHTML = projects.map((p,i) => `
+    <div class="project-card" onclick="openProject(${i})">
+      <div class="project-img">
+        ${p.coverImg ? `<img src="${p.coverImg}" alt="${p.title}" onerror="this.style.display='none'"/>` : ''}
+        <div class="project-img-overlay"></div>
+        <div class="project-img-num">${p.num}</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title">${p.title}</div>
+        <p class="project-desc">${p.desc}</p>
+        <div class="project-tags">${p.tech.slice(0,4).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
+      </div>
+      <div class="project-footer"><span>${p.type}</span><span class="project-link">Details →</span></div>
+    </div>`).join('');
+}
+
+function openProject(i) {
+  const p = projects[i];
+  document.getElementById('d-type').textContent = p.type;
+  document.getElementById('d-title').textContent = p.title;
+  document.getElementById('d-desc').textContent = p.desc;
+  document.getElementById('d-features').innerHTML = p.features.map(f=>`<li>${f}</li>`).join('');
+  document.getElementById('d-tech').innerHTML = p.tech.map(t=>`<span class="skill-tag accent">${t}</span>`).join('');
+
+  // Show/hide demo button
+  const demoBtn = document.getElementById('d-demo');
+  if (p.showDemo !== false && p.demo) {
+    demoBtn.href = p.demo; demoBtn.style.display = '';
+  } else { demoBtn.style.display = 'none'; }
+
+  // Show/hide github button
+  const ghBtn = document.getElementById('d-github');
+  if (p.showGithub !== false && p.github) {
+    ghBtn.href = p.github; ghBtn.style.display = '';
+  } else { ghBtn.style.display = 'none'; }
+
+  const gal = document.getElementById('d-gallery');
+  if (p.images && p.images.length) {
+    gal.innerHTML = p.images.map(src=>`
+      <div class="detail-gallery-img">
+        <img src="${src}" alt="" onclick="viewImg('${src}')" onerror="this.parentElement.style.display='none'"/>
+      </div>`).join('');
+  } else { gal.innerHTML = ''; }
+  openModal('project-detail-overlay');
+}
+
+// ── RENDER CERTS ──
+function buildCerts() {
+  document.getElementById('cnt-certs').textContent = certs.length;
+  document.getElementById('certsGrid').innerHTML = certs.map((c,i) => `
+    <div class="cert-card" onclick="${c.img ? `openCertLightbox(${i})` : 'void(0)'}">
+      <div class="cert-preview">
+        ${c.img
+          ? `<img src="${c.img}" alt="${c.name}" onerror="this.parentElement.innerHTML='<div class=cert-preview-placeholder><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><path d=\\'M3 9h18M9 21V9\\'/></svg><span>Image not found</span></div>'"/>`
+          : `<div class="cert-preview-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <span>Add image path<br/>in the code</span>
+            </div>`
+        }
+      </div>
+      <div class="cert-body">
+        <div class="cert-icon-row"><span class="cert-emoji">${c.emoji}</span><span class="cert-badge">✓ Verified</span></div>
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-issuer">${c.issuer}</div>
+        <div class="cert-date">${c.date}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openCertLightbox(i) {
+  const c = certs[i];
+  if (!c.img) return;
+  document.getElementById('lightbox-img').src = c.img;
+  document.getElementById('lightbox-name').textContent = c.name + ' · ' + c.issuer;
+  openModal('cert-lightbox');
+}
+
+// ── RENDER AWARDS ──
+function buildAwards() {
+  document.getElementById('cnt-awards').textContent = awards.length;
+  document.getElementById('awardsGrid').innerHTML = awards.map((a,i) => `
+    <div class="award-card" onclick="openAward(${i})">
+      <div class="award-card-img">
+        ${a.coverImg
+          ? `<img src="${a.coverImg}" alt="${a.title}" onerror="this.style.display='none'"/>`
+          : `<div class="award-card-img-placeholder">${a.icon}</div>`
+        }
+      </div>
+      <div class="award-card-body">
+        <span class="award-cat ${a.cat}">${a.cat.toUpperCase()}</span>
+        <div class="award-title-text">${a.title}</div>
+        <div class="award-event-text">${a.event}</div>
+        <div class="award-year-text">${a.date}</div>
+        <div class="award-see-more">View details →</div>
+      </div>
+    </div>`).join('');
+}
+
+function openAward(i) {
+  const a = awards[i];
+  const catEl = document.getElementById('aw-cat');
+  catEl.textContent = a.cat.toUpperCase();
+  catEl.className = 'award-cat ' + a.cat;
+  document.getElementById('aw-title').textContent = a.title;
+  document.getElementById('aw-event').textContent = a.event;
+  document.getElementById('aw-location').textContent = a.location;
+  document.getElementById('aw-date').textContent = a.date;
+  document.getElementById('aw-level').textContent = a.level;
+  document.getElementById('aw-summary').textContent = a.summary;
+  const gal = document.getElementById('aw-gallery');
+  gal.innerHTML = (a.images||[]).map(src=>
+    `<img src="${src}" alt="" onclick="viewImg('${src}')" onerror="this.style.display='none'"/>`
+  ).join('');
+  openModal('award-detail-overlay');
+}
+
+// ── RENDER EXPERIENCES ──
+function buildExperiences() {
+  const working    = experiences.filter(e=>e.type==='working');
+  const leadership = experiences.filter(e=>e.type==='leadership');
+  const volunteer  = experiences.filter(e=>e.type==='volunteer');
+  document.getElementById('cnt-exp').textContent = experiences.length;
+
+  function renderCards(list, containerId) {
+    document.getElementById(containerId).innerHTML = list.map(e => {
+      const i = experiences.indexOf(e);
+      const badgeLabel = e.type === 'working' ? 'Working' : e.type === 'leadership' ? 'Leadership' : 'Volunteer';
+      return `
+        <div class="exp-card" onclick="openExperience(${i})">
+          <div class="exp-card-inner">
+            <div class="exp-icon">${e.icon}</div>
+            <div>
+              <div class="exp-card-title">${e.title}</div>
+              <div class="exp-card-org">${e.org}</div>
+              <div class="exp-card-desc">${e.shortDesc}</div>
+              <div class="exp-card-hint">Click for full details →</div>
+            </div>
+            <div>
+              <div class="exp-card-date">${e.date}</div>
+              <div class="exp-card-badge">${badgeLabel}</div>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+  renderCards(working,    'workingCards');
+  renderCards(leadership, 'leadershipCards');
+  renderCards(volunteer,  'volunteerCards');
+}
+
+function openExperience(i) {
+  const e = experiences[i];
+  const badgeLabel = e.type === 'working' ? 'Working' : e.type === 'leadership' ? 'Leadership' : 'Volunteer';
+  document.getElementById('em-badge').textContent = badgeLabel;
+  document.getElementById('em-title').textContent = e.title;
+  document.getElementById('em-org').textContent = e.org;
+  document.getElementById('em-date').textContent = e.date;
+  document.getElementById('em-role').textContent = e.role;
+  document.getElementById('em-summary').textContent = e.summary;
+  const gal = document.getElementById('em-gallery');
+  gal.innerHTML = (e.images||[]).map(src=>
+    `<img src="${src}" alt="" onclick="viewImg('${src}')" onerror="this.style.display='none'"/>`
+  ).join('');
+  openModal('exp-detail-overlay');
+}
+
+// ── MODAL HELPERS ──
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+
+// ── FULLSCREEN IMAGE VIEWER ──
+function viewImg(src) {
+  document.getElementById('imgViewerSrc').src = src;
+  openModal('imgViewer');
+}
+
+// ── TABS ──
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.port-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function switchSubTab(name, btn) {
+  document.querySelectorAll('.exp-subtab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.exp-subtab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('subtab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── NAV ACTIVE ON SCROLL ──
+const navSections = ['hero','about','portfolio','references','contact'];
+function updateNav() {
+  let current = 'hero';
+  navSections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 100) current = id;
+  });
+  navSections.forEach(id => {
+    const link = document.getElementById('nav-'+id);
+    if (link) link.classList.toggle('active', id === current);
+  });
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+
+// ── MOBILE NAV ──
+function toggleMobile() { document.getElementById('navLinks').classList.toggle('open'); }
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open')));
+
+// ── COPY PHONE ──
+function copyPhone(el, number) {
+  navigator.clipboard.writeText(number).then(() => {
+    // Show "Copied!" on every .phone-text inside the clicked element
+    el.querySelectorAll('.phone-text').forEach(span => {
+      const orig = span.textContent;
+      span.textContent = '✓ Copied!';
+      setTimeout(() => { span.textContent = orig; }, 2000);
+    });
+    // Swap arrow in contact section if present
+    const arrow = el.querySelector('.contact-arrow, #phone-arrow');
+    if (arrow) { arrow.textContent = '✓'; setTimeout(() => { arrow.textContent = '→'; }, 2000); }
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = number; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    el.querySelectorAll('.phone-text').forEach(span => {
+      const orig = span.textContent;
+      span.textContent = '✓ Copied!';
+      setTimeout(() => { span.textContent = orig; }, 2000);
+    });
+  });
+}
+
+// ── ESC KEY ──
+document.addEventListener('keydown', e => {
+  if (e.key==='Escape') ['project-detail-overlay','award-detail-overlay','exp-detail-overlay','cert-lightbox','imgViewer'].forEach(closeModal);
+});
+
+// ── INIT ──
+buildProjects();
+buildCerts();
+buildAwards();
+buildExperiences();
+updateNav();
+</script>
+</body>
+</html>
